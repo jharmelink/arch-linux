@@ -3,9 +3,9 @@
 ### Use cfdisk to format the partitions
 ```cfdisk /dev/sda```
 
-*Create a 100MB EFI partition (100M) (sda1)
-*Create a {MAX_SIZE} minus {MEM_SIZE} Linux partition (sda2)
-*Create a {MEM_SIZE} swap partition (e.a. 16G) (sda3)
+* Create a 100MB EFI partition (100M) (sda1)
+* Create a {MAX_SIZE} minus {MEM_SIZE} Linux partition (sda2)
+* Create a {MEM_SIZE} swap partition (e.a. 16G) (sda3)
 
 ### Create ESP filesystem
 ```mkfs.vfat -F32 -n EFI /dev/sda1```
@@ -44,9 +44,7 @@
 
 ### Set the time zone
 ```ln -sf /usr/share/zoneinfo/{Region}/{City} /etc/localtime```
-
 e.a.
-
 ```ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime```
 
 ### Generate /etc/adjtime
@@ -57,11 +55,8 @@ e.a.
 
 ### Generate localizations
 ```locale-gen```
-
 ```cat "LANG=en_US.UTF-8" >> /etc/locale.conf```
-
 ```cat "KEYMAP=us" >> /etc/vconsole.conf```
-
 ```cat "{myhostname}" >> /etc/hostname```
 
 ### Add hostname to /etc/hosts
