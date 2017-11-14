@@ -1,5 +1,7 @@
 # Arch Linux install guide
 
+## Partitions
+
 ### Use cfdisk to format the partitions
 ```cfdisk /dev/sda```
 
@@ -28,6 +30,8 @@
 ```mount /dev/sda1 /mnt/boot```
 
 
+## Installation
+
 ### Install the base plus development and GRUB EFI
 ```pacstrap /mnt base base-devel grub-efi-x86_64```
 
@@ -39,6 +43,8 @@
 ### Chroot into the just created OS (with a bash console for GRUB installation)
 ```arch-chroot /mnt /bin/bash```
 
+
+## Bootmanager
 
 ### Install efibootmgr (and intel-ucode if needed)
 ```pacman -S efibootmgr intel-ucode```
@@ -56,6 +62,8 @@
 ```grub-mkconfig -o /boot/grub/grub.cfg```
 
 
+## Localization
+
 ### Set the time zone
 ```ln -sf /usr/share/zoneinfo/{Region}/{City} /etc/localtime```
 
@@ -71,7 +79,6 @@ e.a.
 uncomment en_US.UTF-8 UTF-8 and other needed localizations
 ```nano /etc/locale.gen```
 
-
 ### Generate localizations
 ```locale-gen```
 
@@ -79,7 +86,18 @@ uncomment en_US.UTF-8 UTF-8 and other needed localizations
 
 ```cat "KEYMAP=us" >> /etc/vconsole.conf```
 
-```cat "{myhostname}" >> /etc/hostname```
+
+## Networking
+
+### Activate network interface with DHCP
+```cp /etc/netctl/examples/ethernet-dhcp /etc/netctl```
+
+Rename eth0 (e.a. to eno1) if needed
+```nano /etc/netctl/ethernet-dhcp```
+
+
+### Set the hostname
+```hostnamectl set-hostname {myhostname}```
 
 
 ### Add hostname to /etc/hosts
@@ -91,6 +109,8 @@ uncomment en_US.UTF-8 UTF-8 and other needed localizations
 
 ```127.0.1.1	{myhostname}.localdomain	{myhostname}```
 
+
+## Finalising
 
 ### Set the root password
 ```passwd```
