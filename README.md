@@ -122,7 +122,7 @@ chown {myusername}:{myusername} /home/{myusername}
 Add: ```{myusername} ALL=(ALL) ALL```
 
 
-## Finalising
+## Finalizing
 
 ### Set the root password
 ```passwd```
