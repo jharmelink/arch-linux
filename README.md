@@ -23,11 +23,11 @@
 
 
 ### Mount the partitions
-```mount /dev/sda2 /mnt```
-
-```mkdir -p /mnt/boot```
-
-```mount /dev/sda1 /mnt/boot```
+```
+mount /dev/sda2 /mnt
+mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot
+```
 
 
 ## Installation
@@ -80,11 +80,11 @@ uncomment en_US.UTF-8 UTF-8 and other needed localizations
 ```nano /etc/locale.gen```
 
 ### Generate localizations
-```locale-gen```
-
-```cat "LANG=en_US.UTF-8" >> /etc/locale.conf```
-
-```cat "KEYMAP=us" >> /etc/vconsole.conf```
+```
+locale-gen
+cat "LANG=en_US.UTF-8" >> /etc/locale.conf
+cat "KEYMAP=us" >> /etc/vconsole.conf
+```
 
 
 ## Networking
@@ -102,12 +102,22 @@ Rename eth0 (e.a. to eno1) if needed
 
 ### Add hostname to /etc/hosts
 ```nano /etc/hosts```
+Add: ```127.0.1.1	{myhostname}.localdomain	{myhostname}```
 
-```127.0.0.1	localhost.localdomain	localhost```
 
-```::1		localhost.localdomain	localhost```
+## Users
 
-```127.0.1.1	{myhostname}.localdomain	{myhostname}```
+### Ctreate user
+```
+useradd {myusername} users
+passwd {myusername}
+mkdir /home/{myusername}
+chown {myusername}:{myusername} /home/{myusername}
+```
+
+### Add user to sudoers
+```visudo```
+Add: ```{myusername} ALL=(ALL) ALL```
 
 
 ## Finalising
