@@ -102,6 +102,7 @@ Rename eth0 (e.a. to eno1) if needed
 
 ### Add hostname to /etc/hosts
 ```nano /etc/hosts```
+
 Add: ```127.0.1.1	{myhostname}.localdomain	{myhostname}```
 
 
@@ -117,6 +118,7 @@ chown {myusername}:{myusername} /home/{myusername}
 
 ### Add user to sudoers
 ```visudo```
+
 Add: ```{myusername} ALL=(ALL) ALL```
 
 
