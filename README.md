@@ -58,7 +58,7 @@ mount /dev/sda1 /mnt/boot
 ```efibootmgr```
 
 
-### Generate grub.cfg
+### Generate GRUB configuration
 ```grub-mkconfig -o /boot/grub/grub.cfg```
 
 
@@ -76,8 +76,9 @@ e.a.
 
 
 ### Edit /etc/locale.gen
-uncomment en_US.UTF-8 UTF-8 and other needed localizations
 ```nano /etc/locale.gen```
+
+Uncomment ```en_US.UTF-8 UTF-8``` and other needed localizations
 
 ### Generate localizations
 ```
@@ -88,6 +89,11 @@ cat "KEYMAP=us" >> /etc/vconsole.conf
 
 
 ## Networking
+
+### Activate the network interface
+```ip link set dev {interface} up```
+
+e.a. ```ip link set dev eno1 up```
 
 ### Activate network interface with DHCP
 ```cp /etc/netctl/examples/ethernet-dhcp /etc/netctl```
