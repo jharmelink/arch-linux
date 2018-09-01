@@ -47,7 +47,7 @@ mount /dev/sda1 /mnt/boot
 ## Bootmanager
 
 ### Install efibootmgr (and intel-ucode if needed)
-```pacman -S efibootmgr intel-ucode```
+```pacman -S efibootmgr intel-ucode nano```
 
 
 ### Bootloader installation
@@ -83,8 +83,8 @@ Uncomment ```en_US.UTF-8 UTF-8``` and other needed localizations
 ### Generate localizations
 ```
 locale-gen
-cat "LANG=en_US.UTF-8" >> /etc/locale.conf
-cat "KEYMAP=us" >> /etc/vconsole.conf
+echo "LANG=en_US.UTF-8" >> /etc/locale.conf
+echo "KEYMAP=us" >> /etc/vconsole.conf
 ```
 
 
