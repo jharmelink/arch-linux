@@ -33,8 +33,8 @@ swapon /dev/sda3
 
 ## Installation
 
-### Install the base plus development and GRUB EFI
-```pacstrap /mnt base base-devel grub-efi-x86_64```
+### Install the base plus development
+```pacstrap /mnt base base-devel```
 
 
 ### Facestab generation
@@ -48,7 +48,7 @@ swapon /dev/sda3
 ## Bootmanager
 
 ### Install efibootmgr (and intel-ucode if needed)
-```pacman -S efibootmgr intel-ucode nano```
+```pacman -S efibootmgr intel-ucode iproute2 sudo nano```
 
 
 ### Bootloader installation
@@ -57,10 +57,6 @@ swapon /dev/sda3
 
 ### Check UEFI firmware entries
 ```efibootmgr```
-
-
-### Generate GRUB configuration
-```grub-mkconfig -o /boot/grub/grub.cfg```
 
 
 ## Localization
@@ -110,21 +106,29 @@ Rename eth0 (e.a. to eno1) if needed
 ### Add hostname to /etc/hosts
 ```nano /etc/hosts```
 
-Add: ```127.0.1.1	{myhostname}.localdomain	{myhostname}```
+Add:
+```
+127.0.0.1	localhost
+::1       localhost
+127.0.1.1	{myhostname}.localdomain	{myhostname}
+```
 
 
 ## Users
 
 ### Ctreate user
 ```
-useradd {myusername} users
+useradd {myusername}
 passwd {myusername}
 mkdir /home/{myusername}
 chown {myusername}:{myusername} /home/{myusername}
 ```
 
 ### Add user to sudoers
-```visudo```
+```
+export EDITOR=nano
+visudo
+```
 
 Add: ```{myusername} ALL=(ALL) ALL```
 
