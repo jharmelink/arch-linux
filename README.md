@@ -52,11 +52,8 @@ swapon /dev/sda3
 
 
 ### Bootloader installation
-```grub-install --efi-directory=/boot```
-
-
-### Check UEFI firmware entries
-```efibootmgr```
+```efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw initrd=\intel-ucode.img initrd=\initramfs-linux.img' --verbose```
+Where /dev/sdX and Y are the drive and partition number where the ESP is located. Change the root= parameter to reflect your Linux root partition.
 
 
 ## Localization
