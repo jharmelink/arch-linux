@@ -109,9 +109,9 @@ Rename eth0 (e.a. to eno1) if needed
 
 Add:
 ```
-127.0.0.1	localhost
+127.0.0.1 localhost
 ::1       localhost
-127.0.1.1	{myhostname}.localdomain	{myhostname}
+127.0.1.1 {myhostname}.localdomain {myhostname}
 ```
 
 
