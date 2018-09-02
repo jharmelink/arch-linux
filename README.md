@@ -51,6 +51,10 @@ swapon /dev/sda3
 ```pacman -S efibootmgr intel-ucode iproute2 sudo nano```
 
 
+### List all UUIDs
+```blkid```
+
+
 ### Bootloader installation
 ```efibootmgr --disk /dev/sdX --part Y --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'root=PARTUUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw initrd=\intel-ucode.img initrd=\initramfs-linux.img' --verbose```
 Where /dev/sdX and Y are the drive and partition number where the ESP is located. Change the root= parameter to reflect your Linux root partition.
