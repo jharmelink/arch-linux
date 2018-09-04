@@ -99,6 +99,12 @@ e.a. ```ip link set dev eno1 up```
 Rename eth0 (e.a. to eno1) if needed
 ```nano /etc/netctl/ethernet-dhcp```
 
+### Test networking
+```
+netctl start ethernet-dhcp
+ping kpn.nl
+netctl enable ethernet-dhcp
+
 
 ### Set the hostname
 ```hostnamectl set-hostname {myhostname}```
