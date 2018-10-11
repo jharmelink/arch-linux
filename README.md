@@ -104,7 +104,7 @@ Rename eth0 (e.a. to eno1) if needed
 netctl start ethernet-dhcp
 ping kpn.nl
 netctl enable ethernet-dhcp
-
+```
 
 ### Set the hostname
 ```hostnamectl set-hostname {myhostname}```
